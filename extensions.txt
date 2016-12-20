@@ -1,0 +1,46 @@
+Extensions:
+Rachel Nash (rsn55) and Jessie Liu (jl2686)
+
+1. Countdown
+    There is a 3-2-1 countdown in the middle of the screen while the
+    player waits for a ball serve the very first time.
+    There is no wait period after the initial countdown because we
+    decided it slowed players down too much.
+    Done using a GLabel to display seconds remaining, which was calculated
+    by keeping track of number of passed animation frames.
+    Code can be found in helper method of breakout called _countdown.
+    
+2. Game Restart
+    Instead of having to restart the game from command line, players can now
+    press any key to start playing again after completion. Score will reset,
+    but scores of previous tries are recorded. We remove the countdown to
+    speed up play time.
+    Done by setting the state to STATE_NEWGAME if a key is touched during
+    STATE_COMPLETE. There can be up to 5 tries, after which the game will
+    go to Level 2.
+    
+3. Keeping Score
+    There is a Glabel at the top of the screen that records the number of
+    bricks a player has hit during a single turn of the game.
+    Done by tracking the length of the list of bricks.
+    Can be found in breakout under helper method _updateScore.
+    
+4. Scoreboard (*this one's cool*)
+    Since extension 'game restart' allows players to have up to 5 tries
+    in a row, their previous and current score are stored in a dictionary
+    that also lists the order. After completing a round, the previous scores
+    are all listed in a scoreboard with different colors.
+    Code can be found under breakout's helper method _complete.
+
+5. Level 2 (*this one's super cool*)
+    After playing 5 rounds of the game, players can press a key to continue
+    to Level 2. Level 2 is the same except that 2 balls are served instead
+    of one. The balls are slightly slower and one is slower than the other
+    so that the player has the chance to hit them both after the serve.
+    Both balls must go off screen to lose a try.
+    If the faster ball goes off screen, the slower ball speeds up so that
+    the game won't be too easy.
+    After 5 rounds of Level 2, players can press a key to go back to Level 1.
+    Code can be found in _updatesingleBall, serveball, and _checkLostBall in Play.
+        
+
